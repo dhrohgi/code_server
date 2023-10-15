@@ -17,7 +17,7 @@ school_semester = ""
 school_date = datetime.today().strftime("%Y%m%d")
 school_year = school_date[0:4]
 
-if int(school_date) < int(f"{datetime.today().strftime("%Y")}0701"):
+if int(school_date) < int(f"{datetime.today().strftime('%Y')}0701"):
     school_semester = 1
 else:
     school_semester = 2
@@ -93,5 +93,5 @@ else:
 
 
     for result in results:        
-        print(f"{result["perio"]}교시:{result['subject_name']}")
+        print(f"{result['perio']}교시:{result['subject_name']}")
     
