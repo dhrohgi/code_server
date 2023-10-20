@@ -12,3 +12,4 @@ while calculating:
         calculating = False
     else:
         get_sandpaper_info(wire_speed, follow_ratio_spindle, follow_ratio_sandingbelt, current_length)
+

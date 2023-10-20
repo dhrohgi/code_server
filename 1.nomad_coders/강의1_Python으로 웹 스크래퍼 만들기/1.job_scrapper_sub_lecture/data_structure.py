@@ -41,3 +41,5 @@ print(player)
 player['fav_food'].append('🍨')
 
 print(player)
+
+
