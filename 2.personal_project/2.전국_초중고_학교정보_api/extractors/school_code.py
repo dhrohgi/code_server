@@ -3,10 +3,9 @@
 import requests
 import json
 
-def get_school_code():
+def get_school_code(school_name):
     api_key = 'c5dd73feb40b45d695c4c042cbd0d041' # 나이스 교육정보 개방포털 api key
     data_type = 'json'
-    school_name = input("조회할 학교명?")
     
     param_dict = {}
     param_dict.setdefault('Key', api_key)
@@ -45,3 +44,4 @@ def get_school_code():
         else:
             print("😩 information wasn't uploaded yet!")            
         return results
+
