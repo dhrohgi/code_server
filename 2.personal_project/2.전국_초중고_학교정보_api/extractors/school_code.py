@@ -18,14 +18,15 @@ def get_school_code(school_name):
 
     response = requests.get(base_url, params=param_dict)
     json_data = None
+    school_info = "schoolInfo"
     
     if response.status_code != 200 :
         print("Can't access the information")
     else:
         json_data = response.json()
         results = []
-        if next(iter(json_data)) == "schoolInfo":
-            basicinfos = json_data['schoolInfo'][1]['row']
+        if next(iter(json_data)) == school_info:
+            basicinfos = json_data[school_info][1]['row']
             for basicinfo in basicinfos:
                 data = {
                     "office_code": basicinfo["ATPT_OFCDC_SC_CODE"],
