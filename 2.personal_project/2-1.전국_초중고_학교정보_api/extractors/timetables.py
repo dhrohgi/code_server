@@ -1,7 +1,7 @@
 # 전국 초중고 시간표정보
 import requests
 from extractors.school_code import get_school_code
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 def get_timetable(school_name):
     api_key = '2349feb6b7134d43831f415416e58d88' # 나이스 교육정보 개방포털 api key
@@ -72,21 +72,25 @@ def get_timetable(school_name):
     for school in schools:
         office_code = school['office_code']
         school_code = school['school_code']
-
-        params = {
-            'Key': api_key,
-            'Type': data_type,
-            'pIndex': 1,
-            'pSize': 1000,
-            'ATPT_OFCDC_SC_CODE': office_code,
-            'SD_SCHUL_CODE': school_code,
-            'ALL_TI_YMD': school_date,
-            'AY': school_year,
-            'SEM': school_semester            
-        }
         
         final_url, final_timetable = check_school_kind()
-        
-        if final_url != None:
-            get_subject(final_url, final_timetable)        
+                
+        for i in [-3, -2, -1, 0, 1, 2, 3]:
+            school_date = (date.today() + timedelta(i)).strftime("%Y%m%d")
+
+            params = {
+                'Key': api_key,
+                'Type': data_type,
+                'pIndex': 1,
+                'pSize': 1000,
+                'ATPT_OFCDC_SC_CODE': office_code,
+                'SD_SCHUL_CODE': school_code,
+                'ALL_TI_YMD': school_date,
+                'AY': school_year,
+                'SEM': school_semester            
+            }
+                        
+            if final_url != None:
+                get_subject(final_url, final_timetable)        
+                
     return results

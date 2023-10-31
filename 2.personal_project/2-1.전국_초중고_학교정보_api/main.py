@@ -19,8 +19,5 @@ file.save_to_timetable_file("timetable", timetables)
 for timetable in timetables:
     print(timetable)
     print("----------------------")
-    
-    
-today_of_week = datetime.today().isocalendar()
-print(today_of_week)
+
 
