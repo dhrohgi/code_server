@@ -10,7 +10,7 @@ def get_apart_deal(lawd):
     
     results = []
     
-    for i in range(-11, 0):
+    for i in range(-5, 0):
         checking_month = (datetime.today() + relativedelta(months = i)).strftime("%Y%m")
         params = {
             'serviceKey': api_key,
@@ -49,6 +49,6 @@ def get_apart_deal(lawd):
                     '해제여부': deal['해제여부']                    
                 }
                 results.append(i)
-    return results
+    return sorted(results, key=lambda apart: apart['아파트'])
 
 
