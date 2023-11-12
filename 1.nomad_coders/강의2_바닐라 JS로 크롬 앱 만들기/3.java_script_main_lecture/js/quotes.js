@@ -56,11 +56,15 @@ const quotes = [
     quote: "오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아간다.",
     author: "앙드레 말로",
   },
+  {
+    quote: "삶이 소중한 이유는 언젠가 끝나기 때문이다.",
+    author: "프란츠 카프카",
+  },
 ];
 
 const quote = document.querySelector("div#quote span:first-child");
 const author = document.querySelector("div#quote span:last-child");
 
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
-quote.innerText = todaysQuote.quote;
+quote.innerText = `💬 ${todaysQuote.quote}`;
 author.innerText = todaysQuote.author;
